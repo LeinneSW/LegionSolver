@@ -214,12 +214,12 @@ function clickBoard(i, j) {
 }
 
 function hoverOverBoard(i, j) {
-    if (state != states.START) {
+    if (state !== states.START) {
         return;
     }
     if (isBigClick) {
         for (let point of legionGroups[findGroupNumber(i, j)]) {
-            if (board[point.x][point.y] == -1) {
+            if (board[point.x][point.y] === -1) {
                 if (isDarkMode) {
                     getLegionCell(point.x, point.y).style.background = 'dimgrey';
                 } else {
@@ -236,7 +236,7 @@ function hoverOverBoard(i, j) {
 
         }
     } else {
-        if (board[i][j] == -1) {
+        if (board[i][j] === -1) {
             if (isDarkMode) {
                 getLegionCell(i, j).style.background = 'dimgrey';    
             } else {
@@ -254,19 +254,19 @@ function hoverOverBoard(i, j) {
 } 
 
 function hoverOffBoard(i, j) {
-    if (state != states.START) {
+    if (state !== states.START) {
         return;
     }
     if (isBigClick) {
         for (let point of legionGroups[findGroupNumber(i, j)]) {
-            if (board[point.x][point.y] == -1) {
+            if (board[point.x][point.y] === -1) {
                 getLegionCell(point.x, point.y).style.background = pieceColours.get(-1);
             } else {
                 getLegionCell(point.x, point.y).style.background = pieceColours.get(0);
             }
         }
     } else {
-        if (board[i][j] == -1) {
+        if (board[i][j] === -1) {
             getLegionCell(i, j).style.background = pieceColours.get(-1);
         } else {
             getLegionCell(i, j).style.background = pieceColours.get(0);
@@ -332,16 +332,16 @@ function activateDarkMode() {
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[0].length; j++) {
             cell = getLegionCell(i, j);
-            if (cell.style.borderTopColor != switchTo) {
+            if (cell.style.borderTopColor !== switchTo) {
                 cell.style.borderTopColor = switchTo
             }
-            if (cell.style.borderBottomColor != switchTo) {
+            if (cell.style.borderBottomColor !== switchTo) {
                 cell.style.borderBottomColor = switchTo
             }
-            if (cell.style.borderRightColor != switchTo) {
+            if (cell.style.borderRightColor !== switchTo) {
                 cell.style.borderRightColor = switchTo
             }
-            if (cell.style.borderLeftColor != switchTo) {
+            if (cell.style.borderLeftColor !== switchTo) {
                 cell.style.borderLeftColor = switchTo
             }
         }
@@ -373,31 +373,31 @@ function resetDuringPause() {
 }
 
 async function handleButton(evt) {
-    if (state == states.START) {
+    if (state === states.START) {
         evt.target.innerText = "Pause";
         document.getElementById("clearBoard").disabled = true;
         state = states.RUNNING;
         let success = await runSolver();
         if (!success) {
-            document.getElementById("failText").innerText = "No Solution Found";
+            document.getElementById("failText").innerText = "해답을 찾을수 없음";
         }
         evt.target.innerText = "Reset";
         state = states.COMPLETED;
-    } else if (state == states.RUNNING) {
+    } else if (state === states.RUNNING) {
         evt.target.innerText = "Continue";
         for (let solvers of legionSolvers) {
             solvers.pause();
         }
         state = states.PAUSED;
         document.getElementById("resetButton").style.visibility = 'visible';
-    } else if (state == states.PAUSED) {
+    } else if (state === states.PAUSED) {
         evt.target.innerText = "Pause";
         for (let solvers of legionSolvers) {
             solvers.continue();
         }
         state = states.RUNNING
         document.getElementById("resetButton").style.visibility = 'hidden';
-    } else if (state == states.COMPLETED) {
+    } else if (state === states.COMPLETED) {
         resetBoard();
         document.getElementById("clearBoard").disabled = false;
         document.getElementById("failText").innerText = "";
@@ -487,8 +487,8 @@ async function runSolver() {
         finishedSolver = legionSolvers[3];
     }
 
-    document.getElementById("iterations").innerText = `Iterations: ${finishedSolver.iterations}`;
-    document.getElementById("time").innerText = `Time: ${new Date().getTime() - finishedSolver.time}ms`;
+    document.getElementById("iterations").innerText = `횟수: ${finishedSolver.iterations}`;
+    document.getElementById("time").innerText = `소요 시간: ${new Date().getTime() - finishedSolver.time}ms`;
     if (success) {
         colourBoard();
     }

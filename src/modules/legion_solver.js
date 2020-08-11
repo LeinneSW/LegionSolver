@@ -376,8 +376,8 @@ class LegionSolver {
     pause() {
         this.time -= new Date().getTime();
         if (this.iterations != 0) {
-            document.getElementById("iterations").innerText = `Iterations: ${this.iterations}`;
-            document.getElementById("time").innerText = `Time: ${-this.time}ms`;
+            document.getElementById("iterations").innerText = `횟수: ${this.iterations}`;
+            document.getElementById("time").innerText = `소요 시간: ${-this.time}ms`;
         }
         this.pausePromise = new Promise(resolve => this.pauseResolve = resolve);
     }
