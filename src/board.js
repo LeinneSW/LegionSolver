@@ -365,7 +365,7 @@ function activateLiveSolve() {
 function resetDuringPause() {
     resetBoard();
     document.getElementById("clearBoard").disabled = false;
-    document.getElementById("boardButton").innerText = "Start";
+    document.getElementById("boardButton").innerText = "시작";
     document.getElementById("resetButton").style.visibility = 'hidden';
     document.getElementById("iterations").innerText = "";
     document.getElementById("time").innerText = "";
@@ -381,7 +381,7 @@ async function handleButton(evt) {
         if (!success) {
             document.getElementById("failText").innerText = "해답을 찾을수 없음";
         }
-        evt.target.innerText = "Reset";
+        evt.target.innerText = "초기화";
         state = states.COMPLETED;
     } else if (state === states.RUNNING) {
         evt.target.innerText = "Continue";
