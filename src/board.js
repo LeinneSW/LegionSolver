@@ -403,7 +403,7 @@ async function handleButton(evt) {
         document.getElementById("failText").innerText = "";
         document.getElementById("iterations").innerText = "";
         document.getElementById("time").innerText = "";
-        evt.target.innerText = "Start";
+        evt.target.innerText = "시작";
         state = states.START;
     }
 }
