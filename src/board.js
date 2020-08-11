@@ -39,7 +39,7 @@ colourBoard();
 let boardFilled = 0;
 if (localStorage.getItem("boardFilled")) {
     boardFilled = JSON.parse(localStorage.getItem("boardFilled"));
-    document.getElementById('boardFilled').innerText = `Board Spaces Filled: ${boardFilled}`;
+    document.getElementById('boardFilled').innerText = `색칠한 영역 개수: ${boardFilled}`;
 }
 
 let isBigClick = false;
@@ -168,7 +168,7 @@ function clearBoard() {
     boardFilled = 0;
     localStorage.setItem("legionBoard", JSON.stringify(board));
     localStorage.setItem("boardFilled", JSON.stringify(0));
-    document.getElementById('boardFilled').innerText = `Board Spaces Filled: ${boardFilled}`;
+    document.getElementById('boardFilled').innerText = `색칠한 영역 개수: ${boardFilled}`;
 }
 
 function clickBoard(i, j) {
@@ -210,7 +210,7 @@ function clickBoard(i, j) {
     }
     localStorage.setItem("legionBoard", JSON.stringify(board));
     localStorage.setItem("boardFilled", JSON.stringify(boardFilled));
-    document.getElementById('boardFilled').innerText = `Board Spaces Filled: ${boardFilled}`;
+    document.getElementById('boardFilled').innerText = `색칠한 영역 개수: ${boardFilled}`;
 }
 
 function hoverOverBoard(i, j) {
@@ -357,7 +357,7 @@ function activateBigClick() {
 function activateLiveSolve() {
     isLiveSolve = !isLiveSolve;
     localStorage.setItem("isLiveSolve", JSON.stringify(isLiveSolve));
-    if (isLiveSolve && state != states.COMPLETED) {
+    if (isLiveSolve && state !== states.COMPLETED) {
         colourBoard();
     }
 }

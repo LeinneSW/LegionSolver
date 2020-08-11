@@ -124,7 +124,7 @@ for (let i = 0; i < defaultPieces.length; i++) {
 
     for (let j = 0; j < defaultPieces[i].length; j++) {
         for (let k = 0; k < defaultPieces[i][j].length; k++) {
-            if (defaultPieces[i][j][k] != 0) {
+            if (defaultPieces[i][j][k] !== 0) {
                 document.getElementById(`pieceDisplay${i+1}`)
                 .getElementsByTagName("tr")[j]
                 .getElementsByTagName("td")[k].style.background = pieceColours.get(i+1);
@@ -132,30 +132,30 @@ for (let i = 0; i < defaultPieces.length; i++) {
         }
     }
 }
-document.getElementById(`pieceDescription${1}`).innerHTML = 'Lvl 60';
-document.getElementById(`pieceDescription${2}`).innerHTML = 'Lvl 100';
-document.getElementById(`pieceDescription${3}`).innerHTML = 'Lvl 140 Warrior/Pirate';
-document.getElementById(`pieceDescription${4}`).innerHTML = 'Lvl 140 Mage/Thief/Archer';
-document.getElementById(`pieceDescription${5}`).innerHTML = 'Lvl 200 Warrior';
-document.getElementById(`pieceDescription${6}`).innerHTML = 'Lvl 200 Archer';
-document.getElementById(`pieceDescription${7}`).innerHTML = 'Lvl 200 Thief/Lab';
-document.getElementById(`pieceDescription${8}`).innerHTML = 'Lvl 200 Mage';
-document.getElementById(`pieceDescription${9}`).innerHTML = 'Lvl 200 Pirate';
-document.getElementById(`pieceDescription${10}`).innerHTML = 'Lvl 250 Enhanced Lab';
-document.getElementById(`pieceDescription${11}`).innerHTML = 'Lvl 250 Warrior';
-document.getElementById(`pieceDescription${12}`).innerHTML = 'Lvl 250 Archer';
-document.getElementById(`pieceDescription${13}`).innerHTML = 'Lvl 250 Thief';
-document.getElementById(`pieceDescription${14}`).innerHTML = 'Lvl 250 Mage';
-document.getElementById(`pieceDescription${15}`).innerHTML = 'Lvl 250 Pirate';
-document.getElementById(`pieceDescription${16}`).innerHTML = 'Lvl 250 Xenon';
-document.getElementById(`pieceDescription${17}`).innerHTML = 'Lvl 200 Enhanced Lab';
-document.getElementById(`pieceDescription${18}`).innerHTML = 'Lvl 250 Lab';
+document.getElementById(`pieceDescription${1}`).innerHTML = '레벨 60';
+document.getElementById(`pieceDescription${2}`).innerHTML = '레벨 100';
+document.getElementById(`pieceDescription${3}`).innerHTML = '레벨 140 전사/해적';
+document.getElementById(`pieceDescription${4}`).innerHTML = '레벨 140 마법사/도적/궁수';
+document.getElementById(`pieceDescription${5}`).innerHTML = '레벨 200 전사';
+document.getElementById(`pieceDescription${6}`).innerHTML = '레벨 200 궁수';
+document.getElementById(`pieceDescription${7}`).innerHTML = '레벨 200 도적';
+document.getElementById(`pieceDescription${8}`).innerHTML = '레벨 200 마법사';
+document.getElementById(`pieceDescription${9}`).innerHTML = '레벨 200 해적';
+document.getElementById(`pieceDescription${10}`).innerHTML = '사용하지 않음';
+document.getElementById(`pieceDescription${11}`).innerHTML = '레벨 250 전사';
+document.getElementById(`pieceDescription${12}`).innerHTML = '레벨 250 궁수';
+document.getElementById(`pieceDescription${13}`).innerHTML = '레벨 250 도적';
+document.getElementById(`pieceDescription${14}`).innerHTML = '레벨 250 마법사';
+document.getElementById(`pieceDescription${15}`).innerHTML = '레벨 250 해적';
+document.getElementById(`pieceDescription${16}`).innerHTML = '레벨 250 제논';
+document.getElementById(`pieceDescription${17}`).innerHTML = '사용하지 않음';
+document.getElementById(`pieceDescription${18}`).innerHTML = '사용하지 않음';
 
 
 let currentPieces = 0;
 if (localStorage.getItem("currentPieces")) {
     currentPieces = JSON.parse(localStorage.getItem("currentPieces"));
-    document.getElementById('currentPieces').innerText = `Spaces to be Filled: ${currentPieces}`;
+    document.getElementById('currentPieces').innerText = `채울수 있는 개수: ${currentPieces}`;
 }
 
 let pieceAmounts = JSON.parse(localStorage.getItem("pieceAmounts"))
@@ -178,7 +178,7 @@ function updateCurrentPieces() {
 
     localStorage.setItem("pieceAmounts", JSON.stringify(pieces.map(piece => piece.amount)));
     localStorage.setItem("currentPieces", JSON.stringify(currentPieces));
-    document.getElementById('currentPieces').innerText = `Spaces to be Filled: ${currentPieces}`;
+    document.getElementById('currentPieces').innerText = `채울수 있는 개수: ${currentPieces}`;
 }
 
 document.getElementById("clearPieces").addEventListener("click", clearPieces);

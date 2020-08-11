@@ -5,12 +5,12 @@
   <% } %>
 </head>
 <body id = "body">
-  <h1 id="title">Legion Solver</h1>
-  <div id="subtitle">Made by: Xenogent of Bera</div>
+  <h1 id="title">유니온 배치표</h1>
+  <div id="subtitle">원 제작자: Xenogent of Bera</div>
   <div id="legionWrapper" class="centerMiddleChild">
     <div id="pieceForm">
       <form></form>
-      <button id = "clearPieces">Clear Pieces</button>
+      <button id = "clearPieces">유니온 모양 초기화</button>
     </div>
     <div id="legion">
       <table id="legionBoard">
@@ -18,23 +18,23 @@
       </table>
       <div id="legionFooter" class="centerMiddleChild">
         <div id="labels">
-          <div id="currentPieces">Spaces to be Filled: 0</div>
-          <div id="boardFilled">Board Spaces Filled: 0</div>
-          <button id="clearBoard">Clear Board</button>
+          <div id="currentPieces">채울수 있는 개수: 0</div>
+          <div id="boardFilled">색칠한 영역 개수: 0</div>
+          <button id="clearBoard">보드 초기화</button>
         </div>
         <div id = "middlelabels">
-          <button id="boardButton">Start</button>
-          <button id="resetButton">Reset</button>
+          <button id="boardButton">시작</button>
+          <button id="resetButton">초기화</button>
           <div id="failText"></div>
         </div>
         <div id="options">
           <div id="checkboxes">
             <input type="checkbox" id="bigClick"></input>
-            <label for="bigClick">Region Click</label>
+            <label for="bigClick">영역 전체 클릭</label>
             <input type="checkbox" id="liveSolve"></input>
-            <label for="liveSolve">Live Solve</label>
+            <label for="liveSolve">실시간 풀이</label>
             <div id = "darkModeLabel"><input type="checkbox" id="darkMode"></input>
-            <label for="darkMode">Dark Mode</label></div>
+            <label for="darkMode">다크 모드</label></div>
           </div>
           <div id="iterationTime">
             <div id = "iterations"></div>
@@ -45,12 +45,12 @@
     </div>
     <div id="instructions" style = 'font-size:20px'>Instructions:
       <div id="paragraph" style = 'font-size:16px'>
-        <p>1. Click the grid spaces you want to be filled, the region click will help you fill it in faster.</p>
-        <p>2. Input the amount of each shape you want to be filled in the board.</p>
-        <p>3. The space that the pieces take up should equal the amount of grid spaces you filled,
-          although the program will still try to run otherwise.</p>
-        <p>4. When you press Start the program will try to fill the board spaces with the pieces you've chosen,
-          click on Live Solve if you want to see the board filled in real time.
+        <p>1. 각 영역을 클릭하여 원하는 만큼 채웁니다. "영역 전체 클릭"을 활성화 하여 빠르게 채울 수 있습니다</p>
+        <p>2. 현재 유니온 상황에 맞게 보유중인 모양의 개수를 입력해줍니다</p>
+        <p>3. 자신이 보유한 모양의 총 칸수와 채워진 영역의 개수는 일치해야 합니다.
+          일치하지 않아도 실행은 되나 정확하지 않은 결과값이 나타날 수 있습니다.</p>
+        <p>4. 시작을 누르면 채워진 영역을 보유중인 유니온 모양으로 공간을 채우게됩니다.
+          만약 실시간으로 채워지는것을 보고싶다면 "실시간 풀이"를 활성화해주세요
         </p>
       </div>
     </div>
