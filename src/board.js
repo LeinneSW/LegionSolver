@@ -379,7 +379,7 @@ async function handleButton(evt) {
         state = states.RUNNING;
         let success = await runSolver();
         if (!success) {
-            document.getElementById("failText").innerText = "해답을 찾을수 없음";
+            document.getElementById("failText").innerText = "해답을 찾지 못함";
         }
         evt.target.innerText = "초기화";
         state = states.COMPLETED;
@@ -409,7 +409,7 @@ async function handleButton(evt) {
 }
 
 async function runSolver() {
-    if (boardFilled == 0 && currentPieces > 0) {
+    if (boardFilled === 0 && currentPieces > 0) {
         return false;
     }
     let downBoard = [];
