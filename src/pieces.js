@@ -35,32 +35,6 @@ const defaultPieces = [
     [
         [1, 2, 0],
         [0, 2, 1]
-    ],
-    [
-        [1, 1, 2],
-        [0, 1, 1]
-    ],
-    [
-        [1, 1, 2, 1, 1],
-    ],
-    [
-        [0, 0, 1],
-        [1, 2, 1],
-        [0, 0, 1]
-    ],
-    [
-        [0, 1, 0],
-        [1, 2, 1],
-        [0, 1, 0]
-    ],
-    [
-        [1, 2, 0, 0],
-        [0, 1, 1, 1]
-    ],
-    [
-        [1, 1, 0],
-        [0, 2, 0],
-        [0, 1, 1]
     ]
 ];
 
@@ -82,12 +56,6 @@ for (let i = 0; i < 2; i++) {
     pieceColours.set(7 + i * 18, 'purple');
     pieceColours.set(8 + i * 18, 'dodgerblue');
     pieceColours.set(9 + i * 18, 'lightsteelblue');
-    pieceColours.set(10 + i * 18, 'maroon');
-    pieceColours.set(11 + i * 18, 'green');
-    pieceColours.set(12 + i * 18, 'indigo');
-    pieceColours.set(13 + i * 18, 'blue');
-    pieceColours.set(14 + i * 18, 'cadetblue');
-    pieceColours.set(15 + i * 18, 'mediumpurple');
 }
 
 for (let i = 0; i < defaultPieces.length; i++) {
@@ -126,12 +94,6 @@ document.getElementById(`pieceDescription${6}`).innerHTML = '레벨 200 궁수';
 document.getElementById(`pieceDescription${7}`).innerHTML = '레벨 200 도적';
 document.getElementById(`pieceDescription${8}`).innerHTML = '레벨 200 마법사';
 document.getElementById(`pieceDescription${9}`).innerHTML = '레벨 200 해적';
-document.getElementById(`pieceDescription${10}`).innerHTML = '레벨 250 전사';
-document.getElementById(`pieceDescription${11}`).innerHTML = '레벨 250 궁수';
-document.getElementById(`pieceDescription${12}`).innerHTML = '레벨 250 도적';
-document.getElementById(`pieceDescription${13}`).innerHTML = '레벨 250 마법사';
-document.getElementById(`pieceDescription${14}`).innerHTML = '레벨 250 해적';
-document.getElementById(`pieceDescription${15}`).innerHTML = '레벨 250 제논';
 
 
 let currentPieces = 0;

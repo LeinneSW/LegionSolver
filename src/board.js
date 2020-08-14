@@ -145,7 +145,7 @@ if (localStorage.getItem("isDarkMode")) {
 function findGroupNumber(i, j) {
     for (let k = 0; k < legionGroups.length; k++) {
         for (let point of legionGroups[k]) {
-            if (point.x == i && point.y == j) {
+            if (point.x === i && point.y === j) {
                 return k;
             }
         }
@@ -172,16 +172,16 @@ function clearBoard() {
 }
 
 function clickBoard(i, j) {
-    if (state != states.START) {
+    if (state !== states.START) {
         return;
     }
 
     if (isBigClick) {
-        if (board[i][j] == -1) {
+        if (board[i][j] === -1) {
             for (let point of legionGroups[findGroupNumber(i, j)]) {
                 let grid = getLegionCell(point.x, point.y);
                 grid.style.background = pieceColours.get(0);
-                if (board[point.x][point.y] == -1) {
+                if (board[point.x][point.y] === -1) {
                     boardFilled++;
                 }
                 board[point.x][point.y] = 0;
@@ -190,7 +190,7 @@ function clickBoard(i, j) {
             for (let point of legionGroups[findGroupNumber(i, j)]) {
                 let grid = getLegionCell(point.x, point.y);
                 grid.style.background = pieceColours.get(-1);
-                if (board[point.x][point.y] == 0) {
+                if (board[point.x][point.y] === 0) {
                     boardFilled--;
                 }
                 board[point.x][point.y] = -1;
@@ -198,7 +198,7 @@ function clickBoard(i, j) {
         }
     } else {
         let grid = getLegionCell(i, j);
-        if (board[i][j] == 0) {
+        if (board[i][j] === 0) {
             board[i][j] = -1;
             grid.style.background = pieceColours.get(-1);
             boardFilled--;
@@ -279,7 +279,7 @@ function resetBoard() {
     for (let k = 0; k < legionSolvers.length; k++) {
         for (let i = 0; i < legionSolvers[k].board.length; i++) {
             for (let j = 0; j < legionSolvers[k].board[0].length; j++) {
-                if (k == 0) {
+                if (k === 0) {
                     if (legionSolvers[k].board[i][j] >= 0) {
                         getLegionCell(i, j).style.background = pieceColours.get(0);
                         legionSolvers[k].board[i][j] = 0;
@@ -439,7 +439,7 @@ async function runSolver() {
     legionSolvers.push(new LegionSolver(downBoard, _.cloneDeep(pieces), () => false));
     legionSolvers.push(new LegionSolver(leftBoard, _.cloneDeep(pieces), () => false));
 
-    let runRotated = legionSolvers[0].longSpaces.length != 0;
+    let runRotated = legionSolvers[0].longSpaces.length !== 0;
     const boardPromise = legionSolvers[0].solve();
     let success;
     if (runRotated) {
